@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+        /* background-color:rgba(16, 110, 110, 0.6); */
+        background-color: rgb(99, 96, 96);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+    }
+    
+    
+    video{
+        height:400px;
+        width:248px;
+    }
+    h1{
+        font-family:arial;
+        font-size:80px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="vid">
+            <video controls  autoplay controlsList="nodownload" id="myVideo">
+                <source  src="pritam_gandu.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+<script>
+    
+    var video = document.getElementById('myVideo');
+
+
+video.addEventListener('ended', function() {
+    
+    alert(`YES PRITAM YOU ARE GANDU! 
+    (click on ok)`);
+    const element=document.querySelector('.vid');
+    element.innerHTML='<h1>Mazak kar rha hu Dil pe mat lena muh me lele bs :) </h1>';
+    
+});
+    
+</script>
+</body>
+</html>
