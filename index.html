@@ -111,8 +111,14 @@
       const oname=document.querySelector(".js-input").value;
       name=oname.toLowerCase();
       let element=document.querySelector('.new');
-        if(name=='pritam' || name=='kalpesh' || name=='tejas' || name=='rohan'){
-            element.innerHTML='<a href="demo.html">Wellcome sir! , click here.</a>';
+        if(name=='pritam'){
+            element.innerHTML='<a href="render-page.html">Wellcome sir! , click here.</a>';
+        }else if(name=='kalpesh'){
+            element.innerHTML='<a href="kalpesh-vid.html">Wellcome sir! , click here.</a>';
+        }else if(name=='rohan'){
+            element.innerHTML='<a href="rohan-vid.html">Wellcome sir! , click here.</a>';
+        }else if(name=='tejas'){
+            element.innerHTML='<a href="tejas-vid.html">Wellcome sir! , click here.</a>';
         }
         else{
             element.innerHTML=`<p>Sorry sir you are not eligible ! </p>`
