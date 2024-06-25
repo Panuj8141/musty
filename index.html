@@ -92,6 +92,9 @@
     font-size:2rem;
     
 }
+a{
+  color:rgb(116, 218, 116)
+}
     
 </style>
 </head>
@@ -106,22 +109,14 @@
     </div>
 <script>
     
-
     function fun(){
       const oname=document.querySelector(".js-input").value;
       name=oname.toLowerCase();
+      const names=['pritam' , 'rohan' ,'tejas' ,'kalpesh' ,'shahid'];
       let element=document.querySelector('.new');
-        if(name=='pritam'){
-            element.innerHTML='<a href="pritam-vid.html">Wellcome sir! , click here.</a>';
-        }else if(name=='kalpesh'){
-          element.innerHTML='<a href="kalpesh-vid.html">Wellcome sir! , click here.</a>';
-        }else if(name=='tejas'){
-          element.innerHTML='<a href="tejas-vid.html">Wellcome sir! , click here.</a>';
-        }else if(name=='rohan'){
-          element.innerHTML='<a href="rohan-vid.html">Wellcome sir! , click here.</a>';
-        }else if(name=='shahid){
-          element.innerHTML='<a href="shahid_vid.html">Wellcome sir! , click here.</a>';
-        }
+       if(names.includes(name)){
+        element.innerHTML=`<p> Wellcome sir! <a href="${name}-vid.html">click here</a> ..</p>`;
+       }
         else{
             element.innerHTML=`<p>Sorry sir you are not eligible ! </p>`
         }
