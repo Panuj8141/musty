@@ -92,7 +92,8 @@
     function calculate(){
         let namesList=['pritam' , 'rohan' ,'tejas' ,'kalpesh' ,'shahid'];
         const oname=document.querySelector('.js-input').value;
-        let name=oname.toLowerCase();
+        let name = oname.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "");
+
         let result=document.querySelector('.js-result-line');
         if(namesList.includes(name)){
             result.innerHTML=`${oname} you  are gyest person ever  <img src="download.jpg">`;
