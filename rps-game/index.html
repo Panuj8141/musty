@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Papers-scissors</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="game-card">
+        <div class="buttonArea">
+            <button><img src="icons/rock-emoji.png" alt="rock" class="buttons-emoji" onclick="play('rock');"></button>
+            <button><img src="icons/paper-emoji.png" alt="paper" class="buttons-emoji" onclick="play('paper');"></button>
+            <button><img src="icons/scissors-emoji.png" alt="scissor" class="buttons-emoji" onclick="play('scissors');"></button>
+        </div>
+        <div class="resultArea"></div>
+        <div class="scores-line"></div>
+    </div>
+<script>
+    const scores={
+        wins:0,
+        ties:0,
+        loss:0
+    };
+
+    function genRandNum(){
+        let compMove='';
+        const rand=Math.random();
+        if(rand>0 && rand<=1/3){
+           return compMove='rock';
+        }else if(rand>1/3 && rand<=2/3){
+            return compMove='paper';
+        }else{
+            return compMove='scissors';
+        }
+    }
+    
+    let result;
+    function play(userMove){
+        const compMove=genRandNum();
+       if(userMove==='rock'){
+        if(compMove==='rock'){
+            result='tie';
+        }else if(compMove==='paper'){
+            result='loose';
+        }else{
+            result='win';
+        }
+       }else if(userMove==='paper'){
+        if(compMove==='rock'){
+            result='win';
+        }else if(compMove==='paper'){
+            result='tie';
+        }else{
+            result='loose';
+        }
+       }else{
+        if(compMove==='rock'){
+            result='loose';
+        }else if(compMove==='paper'){
+            result='win';
+        }else{
+            result='tie';
+        }
+       }
+       let faceResult;
+       if(result==='win'){
+            scores.wins++;
+            faceResult="You won! 😄";
+        }else if(result==='loose'){
+           scores.loss++;
+           faceResult="You lost! 😞";
+        }else{
+	        scores.ties++;
+            faceResult="It's a tie 😊";
+        }
+
+        document.querySelector('.resultArea').innerHTML=` <div class="hand-signs-line">
+        <div>
+            You <div><img src="icons/${userMove}-emoji.png" alt="UserMove" class="hand-sign-emoji"></div>
+        </div>
+        <div class="second-child">
+            <div><img src="icons/${compMove}-emoji.png" alt="ComputerMove" class="hand-sign-emoji"></div>Computer
+        </div>   
+    </div>
+    <div class="js-result-div">
+                <p class="js-result-line">${faceResult}</p>
+            </div>`;
+
+        document.querySelector('.scores-line').innerHTML=`<p>Wins:${scores.wins} , Looses:${scores.loss} , Ties:${scores.ties}</p>`;
+  
+    }
+    
+    </script>
+</body>
+</html>

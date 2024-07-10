@@ -1,0 +1,99 @@
+    body{
+    background-color: rgb(25,25,25);
+    color:white;
+    font-family:arial;
+    font-size:30px;
+    font-weight:bold;
+    
+}
+.buttons-emoji{
+    height:60px;
+    width:60px;
+}
+button{
+    height:110px;
+    width:110px;
+    background:transparent;
+    border:none;
+    border:3px solid white;
+    border-radius:60px;
+    margin-right:10px;
+    cursor:pointer;
+}
+.game-card{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+}
+.hand-sign-emoji{
+    width:50px;
+    vertical-align: middle;
+
+}
+.hand-signs-line div {
+    display:inline-block;
+    font-size:30px;
+    font-weight:bold;
+    vertical-align: middle;
+}
+
+.js-result-line{
+    text-align: center;
+    font-size:30px;
+}
+
+div{
+    margin:12px;
+}
+
+@media(max-width:433px) and (min-width:410px){
+    button{
+        height:100px;
+        width:100px;
+        border-radius:50px;
+    }
+    .buttons-emoji{
+        height:50px;
+        width:50px;
+    }
+}
+@media(max-width:429px){
+    button{
+        height:95px;
+        width:95px;
+        border-radius:47.5px;
+    }
+    .buttons-emoji{
+        height:45px;
+        width:45px;
+    }
+    .hand-sign-line div{
+        display:block;
+    }
+}
+@media(max-width:550px){
+    
+    .hand-signs-line div:nth-child(2){
+        display: flex;
+        flex-direction: row-reverse;
+        
+    }
+}
+@media(max-width:387px){
+    button{
+        height:90px;
+        width:90px;
+        border-radius:45px;
+        /* margin: 0px; */
+    }
+    .buttons-emoji{
+        height:40px;
+        width:40px;
+    }
+    .buttonArea{
+        display: flex;
+        justify-content:space-evenly;
+    }
+    
+}
