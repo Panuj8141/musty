@@ -3,39 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock-Papers-scissors</title>
-<link rel="stylesheet" href="css/styles.css">
+    <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="game-card">
         <div class="buttonArea">
-            <button><img src="icons/rock-emoji.png" alt="rock" class="buttons-emoji" onclick="play('rock');"></button>
-            <button><img src="icons/paper-emoji.png" alt="paper" class="buttons-emoji" onclick="play('paper');"></button>
-            <button><img src="icons/scissors-emoji.png" alt="scissor" class="buttons-emoji" onclick="play('scissors');"></button>
+            <button><img src="icons/rock-emoji.png" alt="rock" class="buttons-emoji js-rock-button"></button>
+            <button><img src="icons/paper-emoji.png" alt="paper" class="buttons-emoji js-paper-button"></button>
+            <button><img src="icons/scissors-emoji.png" alt="scissor" class="buttons-emoji js-scissors-button"></button>
         </div>
-        <div class="resultArea"></div>
-        <div class="scores-line"></div>
-    </div>
+        <div class="resultArea">
+            <div class="userMove-display">
+                <div>you</div>
+                <div></div>
+            </div>
+            <div class="compMove-display">
+                <div></div>
+                <div>computer</div>
+            </div>
+        </div>
+        <div class="result-line">you win</div>
+        <div class="score-line">wins:0 , looses:0 , ties:0</div>
+    </div>    
 <script>
     const scores={
-        wins:0,
-        ties:0,
-        loss:0
-    };
+    wins:0,
+    ties:0,
+    loss:0
+};
 
-    function genRandNum(){
-        let compMove='';
-        const rand=Math.random();
-        if(rand>0 && rand<=1/3){
-           return compMove='rock';
-        }else if(rand>1/3 && rand<=2/3){
-            return compMove='paper';
-        }else{
-            return compMove='scissors';
-        }
+function genRandNum(){
+    const rand=Math.random();
+    if(rand>0 && rand<=1/3){
+       return 'rock';
+    }else if(rand>1/3 && rand<=2/3){
+        return 'paper';
+    }else{
+        return 'scissors';
     }
-    
-    let result;
+}
+
+let result;
     function play(userMove){
         const compMove=genRandNum();
        if(userMove==='rock'){
@@ -75,22 +84,21 @@
             faceResult="It's a tie 😊";
         }
 
-        document.querySelector('.resultArea').innerHTML=` <div class="hand-signs-line">
-        <div>
-            You <div><img src="icons/${userMove}-emoji.png" alt="UserMove" class="hand-sign-emoji"></div>
-        </div>
-        <div class="second-child">
-            <div><img src="icons/${compMove}-emoji.png" alt="ComputerMove" class="hand-sign-emoji"></div>Computer
-        </div>   
-    </div>
-    <div class="js-result-div">
-                <p class="js-result-line">${faceResult}</p>
-            </div>`;
+        document.querySelector('.userMove-display').innerHTML=`<div>you</div><div><img src="icons/${userMove}-emoji.png" class="hand-sign-emoji"></div>`;
 
-        document.querySelector('.scores-line').innerHTML=`<p>Wins:${scores.wins} , Looses:${scores.loss} , Ties:${scores.ties}</p>`;
+        document.querySelector('.compMove-display').innerHTML=`<div><img src="icons/${compMove}-emoji.png" class="hand-sign-emoji"></div><div>computer</div>`;
+
+        document.querySelector('.result-line').innerHTML=`<p>${faceResult}</p>`;
+
+        document.querySelector('.score-line').innerHTML=`<p>Wins:${scores.wins} , Looses:${scores.loss} , Ties:${scores.ties}</p>`;
   
     }
-    
-    </script>
+    document.querySelector('.js-rock-button').addEventListener('click' , ()=> play('rock'));
+
+    document.querySelector('.js-paper-button').addEventListener('click' , ()=> play('paper'));
+
+    document.querySelector('.js-scissors-button').addEventListener('click' , ()=> play('scissors'));
+
+</script> 
 </body>
 </html>
